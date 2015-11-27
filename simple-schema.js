@@ -69,6 +69,16 @@ var typeconvert = function(value, type) {
       return new Date(value);
     }
   }
+  if (type === Boolean) {
+    if (typeof value === "string") {
+      var lowerCaseValue = value.toLowerCase();
+      if (lowerCaseValue === "false") {
+        return false;
+      } else if(lowerCaseValue === "true") {
+        return true;
+      }
+    }
+  }
   return value;
 };
 
